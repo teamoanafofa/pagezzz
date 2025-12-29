@@ -1,66 +1,43 @@
 const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
+const timer = document.getElementById("timer");
+
+/* DATA: 19/11/2025 */
+const startDate = new Date(2025, 10, 19, 0, 0, 0);
 
 /* TOCAR MÚSICA */
 function playMusic() {
   music.play();
   localStorage.setItem("musicPlaying", "true");
+  musicBtn.classList.add("spinning");
 }
 
-/* MANTER MÚSICA ENTRE ABAS */
+/* MANTER MÚSICA */
 if (localStorage.getItem("musicPlaying") === "true") {
   music.play().catch(() => {});
+  musicBtn.classList.add("spinning");
 }
 
-/* ABRIR CARTA EM NOVA ABA */
-function openLetter() {
-  localStorage.setItem("musicPlaying", "true");
+/* CRONÔMETRO */
+function updateTimer() {
+  const now = new Date();
+  let diff = now - startDate;
 
-  const win = window.open("", "_blank");
+  if (diff < 0) diff = 0;
 
-  win.document.write(`
-    <!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-      <meta charset="UTF-8">
-      <title>💌 Uma Carta</title>
-      <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
 
-      <audio src="boca.mp3" autoplay loop></audio>
-
-      <div class="letter">
-        <h1>💖 Uma carta pra você</h1>
-        <p>
-          Desde que te conheci, meus dias ficaram mais leves,
-          meus sorrisos mais sinceros
-          e meu coração escolheu você.
-        </p>
-        <p>
-          Hoje começa oficialmente nossa história 💕
-        </p>
-        <h2>📅 19/11/2025</h2>
-      </div>
-
-      <div class="hearts"></div>
-
-      <script>
-        setInterval(() => {
-          const heart = document.createElement("span");
-          heart.innerHTML = "❤️";
-          heart.style.left = Math.random() * 100 + "vw";
-          heart.style.fontSize = Math.random() * 20 + 20 + "px";
-          document.querySelector(".hearts").appendChild(heart);
-          setTimeout(() => heart.remove(), 5000);
-        }, 300);
-      </script>
-
-    </body>
-    </html>
-  `);
+  timer.textContent =
+    `A gente se conhece há ${days} dias, ${hours}h ${minutes}m ${seconds}s`;
 }
 
-/* CORAÇÕES NA PÁGINA PRINCIPAL */
+setInterval(updateTimer, 1000);
+updateTimer();
+
+/* CORAÇÕES */
 setInterval(() => {
   const heart = document.createElement("span");
   heart.innerHTML = "❤️";
