@@ -22,7 +22,7 @@ function updateTimer() {
   const m = Math.floor((diff / 60000) % 60);
   const s = Math.floor((diff / 1000) % 60);
 
-  timer.innerText = `A gente se conhece há ${d} dias ${h}h ${m}m ${s}s`;
+  timer.innerText = `eu te amo há ${d} dias ${h}h ${m}m ${s}s`;
 }
 
 setInterval(updateTimer, 1000);
@@ -40,3 +40,4 @@ no.onmouseover = () => {
   no.style.left = Math.random() * 200 + "px";
   no.style.top = Math.random() * 60 + "px";
 };
+
