@@ -4,10 +4,9 @@ const music = document.getElementById("music");
 function playMusic() {
   music.play();
   localStorage.setItem("musicPlaying", "true");
-  document.querySelector(".music-btn").style.display = "none";
 }
 
-/* MANTER MÚSICA */
+/* MANTER MÚSICA ENTRE ABAS */
 if (localStorage.getItem("musicPlaying") === "true") {
   music.play().catch(() => {});
 }
@@ -33,10 +32,12 @@ function openLetter() {
       <div class="letter">
         <h1>💖 Uma carta pra você</h1>
         <p>
-          aaaaaa
+          Desde que te conheci, meus dias ficaram mais leves,
+          meus sorrisos mais sinceros
+          e meu coração escolheu você.
         </p>
         <p>
-          Esse é só o começo da nossa história 💕
+          Hoje começa oficialmente nossa história 💕
         </p>
         <h2>📅 19/11/2025</h2>
       </div>
