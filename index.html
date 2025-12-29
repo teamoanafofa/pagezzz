@@ -7,27 +7,41 @@
 </head>
 <body>
 
-  <!-- MÚSICA -->
-  <audio autoplay loop>
-    <source src="careless-whisper.mp3" type="audio/mpeg">
-  </audio>
+<!-- MÚSICA (CONTÍNUA) -->
+<audio id="music" autoplay loop>
+  <source src="boca.mp3" type="audio/mpeg">
+</audio>
 
-  <div class="container">
-    <div class="heart">❤️</div>
+<!-- CORAÇÕES CAINDO -->
+<div class="hearts"></div>
 
-    <!-- EDITE O TEXTO AQUI -->
-    <h1>Eu amo você 💕</h1>
-    <p>Quer namorar comigo?</p>
+<!-- TELA DO PEDIDO -->
+<div class="container" id="page-love">
+  <div class="heart-center">❤️</div>
 
-    <div class="buttons">
-      <button id="yes">Sim 💖</button>
-      <button id="no">Não 😭</button>
-    </div>
+  <h1>Eu amo você 💕</h1>
+  <p>Quer namorar comigo?</p>
 
-    <br>
-    <a href="timer.html" class="link">⏳ Ver nosso tempo juntos</a>
+  <div class="buttons">
+    <button id="yes">Sim 💖</button>
+    <button id="no">Não 😭</button>
   </div>
 
-  <script src="script.js"></script>
+  <br>
+  <button class="link" onclick="showTimer()">⏳ Ver nosso tempo juntos</button>
+</div>
+
+<!-- TELA DO CRONÔMETRO -->
+<div class="container hidden" id="page-timer">
+  <h1>⏳ Nosso tempo juntos</h1>
+  <p>Já nos conhecemos há:</p>
+
+  <div class="timer" id="timer"></div>
+
+  <br>
+  <button class="link" onclick="showLove()">⬅ Voltar</button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

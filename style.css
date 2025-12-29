@@ -7,21 +7,29 @@
 
 body {
   height: 100vh;
-  background: #ffb6c1;
+  background: linear-gradient(180deg, #ffb6c1, #ffc0cb);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* CONTAINER PRINCIPAL */
 .container {
   text-align: center;
   background: rgba(255, 255, 255, 0.35);
   padding: 40px;
   border-radius: 20px;
+  z-index: 2;
 }
 
-.heart {
-  font-size: 80px;
+.hidden {
+  display: none;
+}
+
+/* CORAÇÃO CENTRAL */
+.heart-center {
+  font-size: 90px;
   margin-bottom: 20px;
   animation: pulse 1.5s infinite;
 }
@@ -29,15 +37,15 @@ body {
 h1 {
   font-size: 32px;
   color: #b30059;
-  margin-bottom: 10px;
 }
 
 p {
   font-size: 22px;
   color: #800040;
-  margin-bottom: 30px;
+  margin: 20px 0;
 }
 
+/* BOTÕES */
 .buttons {
   display: flex;
   gap: 20px;
@@ -57,32 +65,61 @@ button {
   color: white;
 }
 
-#yes:hover {
-  background: #ff1a66;
-}
-
 #no {
   background: #ccc;
-  color: #333;
   position: relative;
 }
 
 .link {
-  display: inline-block;
-  margin-top: 20px;
+  background: none;
+  border: none;
   color: #800040;
-  text-decoration: none;
   font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
 }
 
+/* CRONÔMETRO */
 .timer {
   font-size: 28px;
   color: #b30059;
-  margin-top: 20px;
 }
 
+/* ANIMAÇÃO CORAÇÃO CENTRAL */
 @keyframes pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
+}
+
+/* ========================= */
+/* 💕 CORAÇÕES CAINDO */
+/* ========================= */
+
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart-fall {
+  position: absolute;
+  color: rgba(255, 0, 100, 0.8);
+  font-size: 20px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
