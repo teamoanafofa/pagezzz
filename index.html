@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>💖 Pedido Especial</title>
+  <title>Pedido 💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,17 +11,22 @@
 
 <div class="container">
 
-  <!-- BOTÃO DE MÚSICA ACIMA DO PEDIDO -->
-  <button class="music-btn" onclick="playMusic()">💿</button>
+  <!-- BOTÃO DE MÚSICA -->
+  <button class="music-btn" id="musicBtn" onclick="playMusic()">💿</button>
 
   <div class="heart">❤️</div>
+
   <h1>Eu amo você</h1>
   <p>Quer namorar comigo?</p>
 
+  <!-- CRONÔMETRO -->
+  <div id="timer" class="timer"></div>
+
   <div class="buttons">
-    <button class="yes" onclick="openLetter()">Sim 💖</button>
+    <button class="yes">Sim 💖</button>
     <button class="no">Não ❌</button>
   </div>
+
 </div>
 
 <div class="hearts"></div>
