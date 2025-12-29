@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: pink;
+  background: #ffc0cb;
   overflow: hidden;
 }
 
@@ -13,7 +13,7 @@ body {
 }
 
 .heart {
-  font-size: 80px;
+  font-size: 90px;
   animation: pulse 1s infinite;
 }
 
@@ -24,23 +24,24 @@ body {
 }
 
 .music-btn {
-  width: 70px;
-  height: 70px;
-  font-size: 32px;
+  width: 80px;
+  height: 80px;
+  font-size: 36px;
   border-radius: 50%;
   border: none;
   background: #ff2d75;
   color: white;
   cursor: pointer;
-}
-
-@keyframes spinFast {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  margin-bottom: 20px;
 }
 
 .music-btn.spinning {
-  animation: spinFast 0.6s linear infinite;
+  animation: spin 0.4s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 h1 {
@@ -56,9 +57,13 @@ p {
   font-size: 18px;
 }
 
+.buttons {
+  position: relative;
+  height: 120px;
+}
+
 .buttons button {
-  padding: 15px 30px;
-  margin: 10px;
+  padding: 15px 35px;
   font-size: 18px;
   border: none;
   border-radius: 30px;
@@ -66,58 +71,4 @@ p {
 }
 
 .yes {
-  background: #ff2d75;
-  color: white;
-}
-
-.no {
-  background: gray;
-  color: white;
-  position: absolute;
-}
-
-/* POPUP */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-.overlay.show {
-  display: flex;
-}
-
-.popup {
-  background: #fff0f5;
-  padding: 30px;
-  max-width: 500px;
-  border-radius: 20px;
-  text-align: center;
-}
-
-.close {
-  margin-top: 20px;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 20px;
-  background: #ff2d75;
-  color: white;
-  cursor: pointer;
-}
-
-.hearts span {
-  position: fixed;
-  top: -10%;
-  animation: fall 5s linear forwards;
-}
-
-@keyframes fall {
-  to {
-    top: 110%;
-    opacity: 0;
-  }
-}
+  backgro
