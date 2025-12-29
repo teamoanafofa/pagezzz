@@ -1,42 +1,38 @@
-const music = document.getElementById("music");
-const musicBtn = document.getElementById("musicBtn");
-const timer = document.getElementById("timer");
-const yes = document.getElementById("yes");
-const no = document.getElementById("no");
-const overlay = document.getElementById("overlay");
-const close = document.getElementById("close");
+const musica = document.getElementById("musica");
+const playBtn = document.getElementById("playBtn");
+const cronometro = document.getElementById("cronometro");
+const sim = document.getElementById("sim");
+const nao = document.getElementById("nao");
+const popup = document.getElementById("popup");
+const fechar = document.getElementById("fechar");
 
-const startDate = new Date(2025, 10, 19, 0, 0, 0);
-
-musicBtn.onclick = () => {
-  music.play();
-  musicBtn.classList.add("spin");
+playBtn.onclick = () => {
+    musica.play();
 };
 
-function updateTimer() {
-  let diff = new Date() - startDate;
-  if (diff < 0) diff = 0;
-
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor((diff / 3600000) % 24);
-  const m = Math.floor((diff / 60000) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-
-  timer.innerText = `A gente se conhece há ${d} dias ${h}h ${m}m ${s}s`;
-}
-
-setInterval(updateTimer, 1000);
-updateTimer();
-
-yes.onclick = () => {
-  overlay.classList.add("show");
+nao.onclick = () => {
+    nao.style.position = "absolute";
+    nao.style.left = Math.random() * 80 + "%";
+    nao.style.top = Math.random() * 80 + "%";
 };
 
-close.onclick = () => {
-  overlay.classList.remove("show");
+sim.onclick = () => {
+    popup.style.display = "flex";
 };
 
-no.onmouseover = () => {
-  no.style.left = Math.random() * 200 + "px";
-  no.style.top = Math.random() * 60 + "px";
+fechar.onclick = () => {
+    popup.style.display = "none";
 };
+
+const inicio = new Date("2025-11-19T00:00:00");
+
+setInterval(() => {
+    const agora = new Date();
+    const diff = agora - inicio;
+
+    const dias = Math.floor(diff / (1000*60*60*24));
+    const horas = Math.floor((diff / (1000*60*60)) % 24);
+    const minutos = Math.floor((diff / (1000*60)) % 60);
+
+    cronometro.innerText = `${dias} dias ${horas}h ${minutos}min juntos 💕`;
+}, 1000);
